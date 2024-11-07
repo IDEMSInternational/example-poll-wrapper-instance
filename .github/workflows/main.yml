@@ -24,8 +24,8 @@ jobs:
             cd technical
             python -m parenttext_pipeline.cli pull_data compile_flows
 
-      - name: Publish output folder
+      - name: Publish poll_wrappers.json
         uses: actions/upload-artifact@v3
         with:
-          name: Output Files
-          path: output
+          name: Poll Wrappers File
+          path: output/poll_wrappers.json
