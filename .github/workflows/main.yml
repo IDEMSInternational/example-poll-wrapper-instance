@@ -11,6 +11,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Change to technical folder
+        run: cd technical
+
       - name: Install Node dependencies
         run: npm ci
 
@@ -20,9 +23,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run pipeline
-        run: |
-            cd technical
-            python -m parenttext_pipeline.cli pull_data compile_flows
+        run:  python -m parenttext_pipeline.cli pull_data compile_flows
 
       - name: Publish poll_wrappers.json
         uses: actions/upload-artifact@v3
