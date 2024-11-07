@@ -1,4 +1,4 @@
-name: Produce RapidPro flows
+name: Produce Poll Wrappers
 on:
     workflow_dispatch
 
@@ -20,7 +20,9 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run pipeline
-        run: python -m parenttext_pipeline.cli pull_data compile_flows
+        run: |
+            cd technical
+            python -m parenttext_pipeline.cli pull_data compile_flows
 
       - name: Publish output folder
         uses: actions/upload-artifact@v3

@@ -1,0 +1,71 @@
+{
+    "meta": {
+        "version": "1.0.0",
+        "pipeline_version": "1.0.0"
+    },
+    "parents": {
+        "base": {
+            "location": "https://github.com/IDEMSInternational/rapidpro-poll-wrapper-creator/archive/tags/v1.0.0.zip"
+        }
+    },
+    "flows_outputbasename": "poll_wrappers",
+    "output_split_number": 1,
+    "sources": {
+        "flow_definitions": {
+            "parent_sources": [
+                "base.flow_definitions"
+            ],
+            "format": "sheets",
+            "subformat": "csv",
+            "files_dict": {
+                "workspace_data": "workspace_data",
+                "poll_data": "../poll_data"
+            }
+        },
+        "expiration_times": {
+            "format": "json",
+            "files_dict": {
+                "special_expiration_file": "./edits/specific_expiration.json"
+            }
+        },
+        "qr_treatment": {
+            "format": "json",
+            "files_dict": {
+                "select_phrases_file": "./edits/select_phrases.json",
+                "special_words_file": "./edits/special_words.json"
+            }
+        }
+    },
+    "steps": [
+        {   
+            "id": "create_flows",
+            "type": "create_flows",
+            "models_module": "models.parenttext_models",
+            "sources": ["flow_definitions"],
+            "tags": []
+        },
+        {
+            "id": "update_expiration_times",
+            "type": "update_expiration_times",
+            "sources": ["expiration_times"],
+            "default_expiration_time": 1440
+        },
+        {
+            "id": "hasanyword_pretranslation",
+            "type": "has_any_word_check"
+        },
+        {
+            "id": "overall_integrity_check_pretranslation",
+            "type": "overall_integrity_check"
+        },
+        {
+            "id": "qr_treatment",
+            "type": "qr_treatment",
+            "sources": ["qr_treatment"],
+            "qr_treatment": "reformat",  
+            "count_threshold": "13",
+            "length_threshold": "18",
+            "add_selectors": "yes"
+        }
+    ]
+}

@@ -1,0 +1,1289 @@
+{
+    "campaigns": [],
+    "fields": [],
+    "flows": [
+        {
+            "uuid": "eb951cdf-a2ad-4023-b31d-5da4bf195e68",
+            "name": "poll_pt1 - ExampleDummyPoll",
+            "language": "eng",
+            "type": "messaging",
+            "nodes": [
+                {
+                    "uuid": "e9e852f1-846f-49d0-9a68-014c94539e70",
+                    "exits": [
+                        {
+                            "destination_uuid": "fab822d7-e66f-429f-9583-8b8071ccab77",
+                            "uuid": "6a9ce2ed-9194-4d6e-b8b8-680834cdc1b5"
+                        },
+                        {
+                            "destination_uuid": "35120cce-b538-4b4a-a13d-c5b491434108",
+                            "uuid": "12f70064-57f7-4da6-b9b5-60e098764b86"
+                        },
+                        {
+                            "destination_uuid": "3448c2fd-323d-4227-9a9a-5701703e21d4",
+                            "uuid": "d79d874c-dae6-4b75-9353-8e25ff3e08bf"
+                        },
+                        {
+                            "destination_uuid": "fe476fec-fcf8-406c-88a7-71f0f769a648",
+                            "uuid": "d72a4a4a-b619-482a-b2f2-c0b4fe20be74"
+                        }
+                    ],
+                    "actions": [],
+                    "router": {
+                        "type": "switch",
+                        "operand": "@(urn_parts(contact.urn).scheme)",
+                        "cases": [
+                            {
+                                "uuid": "b3a54b07-2c10-4f85-ba3a-56e7b6042df7",
+                                "type": "has_any_word",
+                                "category_uuid": "4b59cead-be25-4663-a2df-6c83dce78071",
+                                "arguments": [
+                                    "tel"
+                                ]
+                            },
+                            {
+                                "uuid": "51431ba8-8be8-41d8-968d-187017d5666f",
+                                "type": "has_any_word",
+                                "category_uuid": "51cd9cfd-a0b1-490b-9551-d879b0ec5d11",
+                                "arguments": [
+                                    "facebook"
+                                ]
+                            },
+                            {
+                                "uuid": "361545fb-98e7-43aa-983a-71d8b550dda2",
+                                "type": "has_any_word",
+                                "category_uuid": "479b4d78-99fc-4fc3-9282-54fccf00bf21",
+                                "arguments": [
+                                    "whatsapp"
+                                ]
+                            }
+                        ],
+                        "categories": [
+                            {
+                                "uuid": "4b59cead-be25-4663-a2df-6c83dce78071",
+                                "name": "SMS",
+                                "exit_uuid": "6a9ce2ed-9194-4d6e-b8b8-680834cdc1b5"
+                            },
+                            {
+                                "uuid": "51cd9cfd-a0b1-490b-9551-d879b0ec5d11",
+                                "name": "Facebook",
+                                "exit_uuid": "12f70064-57f7-4da6-b9b5-60e098764b86"
+                            },
+                            {
+                                "uuid": "479b4d78-99fc-4fc3-9282-54fccf00bf21",
+                                "name": "WhatsApp",
+                                "exit_uuid": "d79d874c-dae6-4b75-9353-8e25ff3e08bf"
+                            },
+                            {
+                                "uuid": "794df1fb-2084-42a0-9789-040d5213aea5",
+                                "name": "Other",
+                                "exit_uuid": "d72a4a4a-b619-482a-b2f2-c0b4fe20be74"
+                            }
+                        ],
+                        "default_category_uuid": "794df1fb-2084-42a0-9789-040d5213aea5",
+                        "result_name": ""
+                    }
+                },
+                {
+                    "uuid": "fab822d7-e66f-429f-9583-8b8071ccab77",
+                    "exits": [
+                        {
+                            "destination_uuid": null,
+                            "uuid": "8d52c0f4-92d5-4eb4-bdd4-10cabc316202"
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "uuid": "73cccd57-b66d-4993-bda9-09ea1267af60",
+                            "type": "send_msg",
+                            "text": "message for SMS",
+                            "attachments": [],
+                            "quick_replies": []
+                        }
+                    ]
+                },
+                {
+                    "uuid": "35120cce-b538-4b4a-a13d-c5b491434108",
+                    "exits": [
+                        {
+                            "destination_uuid": null,
+                            "uuid": "1d68f8a6-3739-41cf-ae7f-945de568021c"
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "uuid": "3de07b98-60bd-4d67-883a-f748d9ba181f",
+                            "type": "send_msg",
+                            "text": "message for FB",
+                            "attachments": [],
+                            "quick_replies": []
+                        }
+                    ]
+                },
+                {
+                    "uuid": "3448c2fd-323d-4227-9a9a-5701703e21d4",
+                    "exits": [
+                        {
+                            "destination_uuid": null,
+                            "uuid": "ee95f249-ad94-456b-b1fb-fbacf574371b"
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "uuid": "e363f081-cb55-4891-be3c-9b683afe95fe",
+                            "type": "send_msg",
+                            "text": "message for WA",
+                            "attachments": [],
+                            "quick_replies": []
+                        }
+                    ]
+                },
+                {
+                    "uuid": "fe476fec-fcf8-406c-88a7-71f0f769a648",
+                    "exits": [
+                        {
+                            "destination_uuid": null,
+                            "uuid": "8e5b46d9-eb9a-4aa2-8d34-0a0628d6287a"
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "uuid": "9341f512-3c20-4921-bba3-c3fc77c78d1e",
+                            "type": "send_msg",
+                            "text": "message for other channels",
+                            "attachments": [],
+                            "quick_replies": []
+                        }
+                    ]
+                }
+            ],
+            "spec_version": "13.1.0",
+            "revision": 0,
+            "expire_after_minutes": 10080,
+            "metadata": {},
+            "localization": {}
+        },
+        {
+            "uuid": "ebf571fe-2bc6-4798-a8f6-aec44057678d",
+            "name": "poll_wrapper - ExampleDummyPoll",
+            "language": "eng",
+            "type": "messaging",
+            "nodes": [
+                {
+                    "uuid": "af24550c-dbb9-4419-9e88-c9d28ffb3374",
+                    "exits": [
+                        {
+                            "destination_uuid": "6131e5ec-77d5-4271-85c0-c4a703247264",
+                            "uuid": "24155e25-4523-419d-b121-0978d73bd656"
+                        },
+                        {
+                            "destination_uuid": "245ded19-e2e9-4ef9-aa48-9eaf70fff635",
+                            "uuid": "8045bdcd-dfc2-48f1-bc9b-2b880de1aac5"
+                        }
+                    ],
+                    "actions": [],
+                    "router": {
+                        "type": "switch",
+                        "operand": "@contact.groups",
+                        "cases": [
+                            {
+                                "uuid": "e1c8ec14-f29d-4112-ade6-f990d33a0c8c",
+                                "type": "has_group",
+                                "category_uuid": "36dd5831-f5dc-430e-a579-98d268ccaf39",
+                                "arguments": [
+                                    "1b26f218-84a6-48d8-9592-9066f288e1bc",
+                                    "completed ExampleDummyPoll poll"
+                                ]
+                            }
+                        ],
+                        "categories": [
+                            {
+                                "uuid": "36dd5831-f5dc-430e-a579-98d268ccaf39",
+                                "name": "completed ExampleDummyPoll poll",
+                                "exit_uuid": "24155e25-4523-419d-b121-0978d73bd656"
+                            },
+                            {
+                                "uuid": "a4f38ef1-9af4-4393-b370-4906def3335b",
+                                "name": "Other",
+                                "exit_uuid": "8045bdcd-dfc2-48f1-bc9b-2b880de1aac5"
+                            }
+                        ],
+                        "default_category_uuid": "a4f38ef1-9af4-4393-b370-4906def3335b",
+                        "result_name": ""
+                    }
+                },
+                {
+                    "uuid": "6131e5ec-77d5-4271-85c0-c4a703247264",
+                    "exits": [
+                        {
+                            "destination_uuid": null,
+                            "uuid": "6de35d14-d4ba-4d3b-a19a-f2b7af5fcd68"
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "uuid": "da057709-4855-4e7e-9bd5-84b69b7782d8",
+                            "type": "send_msg",
+                            "text": "Sorry you can only take the poll once.",
+                            "attachments": [],
+                            "quick_replies": []
+                        }
+                    ]
+                },
+                {
+                    "uuid": "245ded19-e2e9-4ef9-aa48-9eaf70fff635",
+                    "exits": [
+                        {
+                            "destination_uuid": "daacf245-a080-41e4-aa15-b2995bc334ee",
+                            "uuid": "969c95a5-71cc-4b88-b920-07379c7f0c99"
+                        },
+                        {
+                            "destination_uuid": null,
+                            "uuid": "47f2b715-bdfe-43c9-84e8-3db599b50c47"
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "type": "enter_flow",
+                            "uuid": "e29b0be4-691a-4190-bf22-c44258c36144",
+                            "flow": {
+                                "name": "poll_pt1 - ExampleDummyPoll",
+                                "uuid": "eb951cdf-a2ad-4023-b31d-5da4bf195e68"
+                            }
+                        }
+                    ],
+                    "router": {
+                        "type": "switch",
+                        "operand": "@child.run.status",
+                        "cases": [
+                            {
+                                "uuid": "e3f2a405-0697-42af-b0ba-9cf57048ec43",
+                                "type": "has_only_text",
+                                "category_uuid": "e06d74d8-2c92-43b3-bd52-b4e3672d17e6",
+                                "arguments": [
+                                    "completed"
+                                ]
+                            },
+                            {
+                                "uuid": "b5bd8ae8-af57-4ca4-a4e0-8cdf7e2cc05f",
+                                "type": "has_only_text",
+                                "category_uuid": "5851f012-08d8-4bfd-bcfe-9a259e5ce094",
+                                "arguments": [
+                                    "expired"
+                                ]
+                            }
+                        ],
+                        "categories": [
+                            {
+                                "uuid": "e06d74d8-2c92-43b3-bd52-b4e3672d17e6",
+                                "name": "Complete",
+                                "exit_uuid": "969c95a5-71cc-4b88-b920-07379c7f0c99"
+                            },
+                            {
+                                "uuid": "5851f012-08d8-4bfd-bcfe-9a259e5ce094",
+                                "name": "Expired",
+                                "exit_uuid": "47f2b715-bdfe-43c9-84e8-3db599b50c47"
+                            }
+                        ],
+                        "default_category_uuid": "5851f012-08d8-4bfd-bcfe-9a259e5ce094"
+                    }
+                },
+                {
+                    "uuid": "daacf245-a080-41e4-aa15-b2995bc334ee",
+                    "exits": [
+                        {
+                            "destination_uuid": "b0a1b756-1765-4117-974b-d25a52db9b65",
+                            "uuid": "56a68d2b-7bd2-4af0-977f-b0dbb597c8d8"
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "type": "set_run_result",
+                            "name": "fromtrigger",
+                            "value": "yes",
+                            "uuid": "11842013-b863-405e-a1fb-cd5a839bb7b0"
+                        }
+                    ]
+                },
+                {
+                    "uuid": "b0a1b756-1765-4117-974b-d25a52db9b65",
+                    "exits": [
+                        {
+                            "destination_uuid": null,
+                            "uuid": "53d1f17e-10ac-4e34-a37c-be6c9b9bc7ea"
+                        },
+                        {
+                            "destination_uuid": null,
+                            "uuid": "ba3bad50-b851-4f42-bfa9-a5ece2262adf"
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "type": "enter_flow",
+                            "uuid": "94f4888f-a554-4085-9ff8-b1600c08d9b0",
+                            "flow": {
+                                "name": "poll_wrapper_pt2 - ExampleDummyPoll",
+                                "uuid": "954d772c-528a-4435-9046-ed1a26bd0392"
+                            }
+                        }
+                    ],
+                    "router": {
+                        "type": "switch",
+                        "operand": "@child.run.status",
+                        "cases": [
+                            {
+                                "uuid": "f72d8753-f145-4468-a2c4-269a51d7f70c",
+                                "type": "has_only_text",
+                                "category_uuid": "f924a2a9-78cd-4b4a-a903-d7efb6d5d30b",
+                                "arguments": [
+                                    "completed"
+                                ]
+                            },
+                            {
+                                "uuid": "850fbb60-6718-4684-acd4-e704df78c156",
+                                "type": "has_only_text",
+                                "category_uuid": "34ed2b19-150a-4b11-89cf-22da22d25764",
+                                "arguments": [
+                                    "expired"
+                                ]
+                            }
+                        ],
+                        "categories": [
+                            {
+                                "uuid": "f924a2a9-78cd-4b4a-a903-d7efb6d5d30b",
+                                "name": "Complete",
+                                "exit_uuid": "53d1f17e-10ac-4e34-a37c-be6c9b9bc7ea"
+                            },
+                            {
+                                "uuid": "34ed2b19-150a-4b11-89cf-22da22d25764",
+                                "name": "Expired",
+                                "exit_uuid": "ba3bad50-b851-4f42-bfa9-a5ece2262adf"
+                            }
+                        ],
+                        "default_category_uuid": "34ed2b19-150a-4b11-89cf-22da22d25764"
+                    }
+                },
+                {
+                    "uuid": "7d52f523-af5d-4761-91f0-9991dafa8b81",
+                    "exits": [
+                        {
+                            "destination_uuid": null,
+                            "uuid": "71bed53d-334f-474d-ab7d-93341ddc2399"
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "uuid": "0a10346e-3394-46b6-80ad-3c924c10ce79",
+                            "type": "send_msg",
+                            "text": "Thanks for replying but we had to close the poll.",
+                            "attachments": [],
+                            "quick_replies": []
+                        }
+                    ]
+                }
+            ],
+            "spec_version": "13.1.0",
+            "revision": 0,
+            "expire_after_minutes": 10080,
+            "metadata": {},
+            "localization": {}
+        },
+        {
+            "uuid": "954d772c-528a-4435-9046-ed1a26bd0392",
+            "name": "poll_wrapper_pt2 - ExampleDummyPoll",
+            "language": "eng",
+            "type": "messaging",
+            "nodes": [
+                {
+                    "uuid": "433cb84c-6fb9-4449-a497-69728a5d592d",
+                    "exits": [
+                        {
+                            "destination_uuid": "f3cf18aa-6765-4f43-876f-879990ad81a4",
+                            "uuid": "7a74d129-33b9-4f82-8d42-afe6123ec9ad"
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "type": "set_run_result",
+                            "name": "fromtrigger",
+                            "value": "@parent.results.fromtrigger",
+                            "uuid": "b25c7151-1500-46cc-8dfd-6a305750d901"
+                        }
+                    ]
+                },
+                {
+                    "uuid": "f3cf18aa-6765-4f43-876f-879990ad81a4",
+                    "exits": [
+                        {
+                            "destination_uuid": "a760f26f-d7a5-432f-bd7d-753d4fee1cea",
+                            "uuid": "fe018234-503f-496f-817f-9b4b9a10f424"
+                        },
+                        {
+                            "destination_uuid": "fdb6944e-ef44-4635-9b03-fd85140849f5",
+                            "uuid": "9f67014b-106c-4335-8ae3-4693c8bac97a"
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "type": "enter_flow",
+                            "uuid": "79763f18-783d-495b-8587-0c4f0daba9b5",
+                            "flow": {
+                                "name": "poll_first_interaction - ExampleDummyPoll",
+                                "uuid": "b36d4fb3-4c0a-4229-b7da-75aa31ae10fb"
+                            }
+                        }
+                    ],
+                    "router": {
+                        "type": "switch",
+                        "operand": "@child.run.status",
+                        "cases": [
+                            {
+                                "uuid": "faf2d2e4-3fba-49db-a30b-efacb073ea6e",
+                                "type": "has_only_text",
+                                "category_uuid": "292884a1-db87-4a7d-9b76-2efad976a6bd",
+                                "arguments": [
+                                    "completed"
+                                ]
+                            },
+                            {
+                                "uuid": "dac663da-336a-43d9-a475-2936ef825657",
+                                "type": "has_only_text",
+                                "category_uuid": "af0468f4-3a97-4e40-a5aa-020a06818839",
+                                "arguments": [
+                                    "expired"
+                                ]
+                            }
+                        ],
+                        "categories": [
+                            {
+                                "uuid": "292884a1-db87-4a7d-9b76-2efad976a6bd",
+                                "name": "Complete",
+                                "exit_uuid": "fe018234-503f-496f-817f-9b4b9a10f424"
+                            },
+                            {
+                                "uuid": "af0468f4-3a97-4e40-a5aa-020a06818839",
+                                "name": "Expired",
+                                "exit_uuid": "9f67014b-106c-4335-8ae3-4693c8bac97a"
+                            }
+                        ],
+                        "default_category_uuid": "af0468f4-3a97-4e40-a5aa-020a06818839"
+                    }
+                },
+                {
+                    "uuid": "a760f26f-d7a5-432f-bd7d-753d4fee1cea",
+                    "exits": [
+                        {
+                            "destination_uuid": "298aaefc-2100-4acf-859d-8210e10bf343",
+                            "uuid": "2e35c131-b423-42e5-8c59-cfdb50e0397d"
+                        },
+                        {
+                            "destination_uuid": null,
+                            "uuid": "d925a8f4-9740-4eb8-b981-1f6e2bd30c66"
+                        }
+                    ],
+                    "actions": [],
+                    "router": {
+                        "type": "switch",
+                        "operand": "@child.results.accepted",
+                        "cases": [
+                            {
+                                "uuid": "722e111f-77db-4afd-b1a0-6e10edbaae07",
+                                "type": "has_any_word",
+                                "category_uuid": "8576f62b-9a39-4b09-8521-572fdd0a3814",
+                                "arguments": [
+                                    "yes"
+                                ]
+                            }
+                        ],
+                        "categories": [
+                            {
+                                "uuid": "8576f62b-9a39-4b09-8521-572fdd0a3814",
+                                "name": "Yes",
+                                "exit_uuid": "2e35c131-b423-42e5-8c59-cfdb50e0397d"
+                            },
+                            {
+                                "uuid": "17f80b94-d066-466c-9de4-b20a32094130",
+                                "name": "Other",
+                                "exit_uuid": "d925a8f4-9740-4eb8-b981-1f6e2bd30c66"
+                            }
+                        ],
+                        "default_category_uuid": "17f80b94-d066-466c-9de4-b20a32094130",
+                        "result_name": ""
+                    }
+                },
+                {
+                    "uuid": "298aaefc-2100-4acf-859d-8210e10bf343",
+                    "exits": [
+                        {
+                            "destination_uuid": "ba4f808c-0e69-4450-9320-c68780ebacd5",
+                            "uuid": "85ae0e8e-92ca-40c8-9beb-8004c571c19d"
+                        },
+                        {
+                            "destination_uuid": "fdb6944e-ef44-4635-9b03-fd85140849f5",
+                            "uuid": "c3158c9d-9a43-4c5e-befa-a4f5a8d56fa7"
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "type": "enter_flow",
+                            "uuid": "3ded3326-2540-45af-96a0-b98afeedc000",
+                            "flow": {
+                                "name": "poll_pt2 - ExampleDummyPoll",
+                                "uuid": "9589ce8c-b64a-4163-9376-edb405c684ae"
+                            }
+                        }
+                    ],
+                    "router": {
+                        "type": "switch",
+                        "operand": "@child.run.status",
+                        "cases": [
+                            {
+                                "uuid": "7747f0a8-36ab-47bd-a49d-c0e23cff1024",
+                                "type": "has_only_text",
+                                "category_uuid": "6e2f476a-2af2-4572-8a84-4424448770b2",
+                                "arguments": [
+                                    "completed"
+                                ]
+                            },
+                            {
+                                "uuid": "94d59703-3b98-4d64-a25e-bdb3e7eea00f",
+                                "type": "has_only_text",
+                                "category_uuid": "f0aa36d5-c3b9-472e-8de6-19bf44a59f44",
+                                "arguments": [
+                                    "expired"
+                                ]
+                            }
+                        ],
+                        "categories": [
+                            {
+                                "uuid": "6e2f476a-2af2-4572-8a84-4424448770b2",
+                                "name": "Complete",
+                                "exit_uuid": "85ae0e8e-92ca-40c8-9beb-8004c571c19d"
+                            },
+                            {
+                                "uuid": "f0aa36d5-c3b9-472e-8de6-19bf44a59f44",
+                                "name": "Expired",
+                                "exit_uuid": "c3158c9d-9a43-4c5e-befa-a4f5a8d56fa7"
+                            }
+                        ],
+                        "default_category_uuid": "f0aa36d5-c3b9-472e-8de6-19bf44a59f44"
+                    }
+                },
+                {
+                    "uuid": "ba4f808c-0e69-4450-9320-c68780ebacd5",
+                    "exits": [
+                        {
+                            "destination_uuid": null,
+                            "uuid": "823aa8a8-e515-465a-9df5-4ccba256620d"
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "type": "add_contact_groups",
+                            "uuid": "e8721c6e-a9fd-4752-80c9-88d1af73ca02",
+                            "groups": [
+                                {
+                                    "name": "completed ExampleDummyPoll poll",
+                                    "uuid": "1b26f218-84a6-48d8-9592-9066f288e1bc"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "uuid": "fdb6944e-ef44-4635-9b03-fd85140849f5",
+                    "exits": [
+                        {
+                            "destination_uuid": null,
+                            "uuid": "67642836-a648-415a-8a8f-1dcd38dbd775"
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "uuid": "2884adf6-303b-4f1b-85fb-f003b9bffb1c",
+                            "type": "send_msg",
+                            "text": "Your chat has timed out. If you want to go back to this poll, please message us the word POLL",
+                            "attachments": [],
+                            "quick_replies": []
+                        }
+                    ]
+                }
+            ],
+            "spec_version": "13.1.0",
+            "revision": 0,
+            "expire_after_minutes": 10080,
+            "metadata": {},
+            "localization": {}
+        },
+        {
+            "uuid": "b4685150-17d1-40a5-bb3f-34aa77e9fb7d",
+            "name": "poll_wrapper_pt1 - ExampleDummyPoll",
+            "language": "eng",
+            "type": "messaging",
+            "nodes": [
+                {
+                    "uuid": "6a839ba3-b70e-4704-897a-dae0e7c7bd48",
+                    "exits": [
+                        {
+                            "destination_uuid": null,
+                            "uuid": "dd2efb1a-daf4-4b50-9d45-8c4e6269192d"
+                        },
+                        {
+                            "destination_uuid": null,
+                            "uuid": "5ca9f836-bf17-4b35-b6e7-179d635d9a7d"
+                        },
+                        {
+                            "destination_uuid": null,
+                            "uuid": "337c2de5-2e16-4a33-923f-511af1b736dc"
+                        },
+                        {
+                            "destination_uuid": "aa2540a5-552b-4e74-a477-9f428206e62f",
+                            "uuid": "deb74627-690b-4d12-9ced-1fce22104058"
+                        }
+                    ],
+                    "actions": [],
+                    "router": {
+                        "type": "switch",
+                        "operand": "@contact.groups",
+                        "cases": [
+                            {
+                                "uuid": "d579fab2-b92a-4fbf-80be-c51fb38b9fcb",
+                                "type": "has_group",
+                                "category_uuid": "23d2244e-5d78-4e7d-b542-86125f0e7e59",
+                                "arguments": [
+                                    "0b95a70d-1f88-4cd8-b1ef-3b33158b133b",
+                                    "in program"
+                                ]
+                            },
+                            {
+                                "uuid": "75e59776-48db-4419-ba44-bd873ab2d0eb",
+                                "type": "has_group",
+                                "category_uuid": "f11fcc7e-5672-4011-8392-351f1aeacb1f",
+                                "arguments": [
+                                    "cefc0d78-c8ff-4127-bc22-906c6a29705a",
+                                    "Chatline Users - open cases"
+                                ]
+                            },
+                            {
+                                "uuid": "44908aac-a92f-4957-8a12-dcf3570a762d",
+                                "type": "has_group",
+                                "category_uuid": "22a85311-978c-4b87-99a4-e4644c8fd20d",
+                                "arguments": [
+                                    "1b26f218-84a6-48d8-9592-9066f288e1bc",
+                                    "completed ExampleDummyPoll poll"
+                                ]
+                            }
+                        ],
+                        "categories": [
+                            {
+                                "uuid": "23d2244e-5d78-4e7d-b542-86125f0e7e59",
+                                "name": "in program",
+                                "exit_uuid": "dd2efb1a-daf4-4b50-9d45-8c4e6269192d"
+                            },
+                            {
+                                "uuid": "f11fcc7e-5672-4011-8392-351f1aeacb1f",
+                                "name": "Chatline Users - open cases",
+                                "exit_uuid": "5ca9f836-bf17-4b35-b6e7-179d635d9a7d"
+                            },
+                            {
+                                "uuid": "22a85311-978c-4b87-99a4-e4644c8fd20d",
+                                "name": "completed ExampleDummyPoll poll",
+                                "exit_uuid": "337c2de5-2e16-4a33-923f-511af1b736dc"
+                            },
+                            {
+                                "uuid": "9cfdef68-8b06-4d83-9066-46b84d55a074",
+                                "name": "Other",
+                                "exit_uuid": "deb74627-690b-4d12-9ced-1fce22104058"
+                            }
+                        ],
+                        "default_category_uuid": "9cfdef68-8b06-4d83-9066-46b84d55a074",
+                        "result_name": ""
+                    }
+                },
+                {
+                    "uuid": "aa2540a5-552b-4e74-a477-9f428206e62f",
+                    "exits": [
+                        {
+                            "destination_uuid": "d6092a70-1ced-4c9e-89d0-ff252b846a46",
+                            "uuid": "e5770555-0087-4331-81e3-2d03d8e35441"
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "type": "add_contact_groups",
+                            "uuid": "f29264d9-a497-43b8-8d61-cf1aadbfbbfc",
+                            "groups": [
+                                {
+                                    "name": "open interaction",
+                                    "uuid": "728122c5-b4c2-4ca1-a94f-25e3d59d77fb"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "uuid": "d6092a70-1ced-4c9e-89d0-ff252b846a46",
+                    "exits": [
+                        {
+                            "destination_uuid": "f304bd7b-67d0-4f26-bf80-8e7b1d5525ae",
+                            "uuid": "ba482c29-8f26-4bbe-837b-8ff47292ee1f"
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "uuid": "99db8a1a-2487-489d-a4f4-ec5f34f3e95a",
+                            "type": "set_contact_field",
+                            "field": {
+                                "name": "open interaction",
+                                "key": "open_interaction"
+                            },
+                            "value": "ExampleDummyPoll_poll"
+                        }
+                    ]
+                },
+                {
+                    "uuid": "f304bd7b-67d0-4f26-bf80-8e7b1d5525ae",
+                    "exits": [
+                        {
+                            "destination_uuid": null,
+                            "uuid": "be222b7c-3636-47da-8801-81fa056704dd"
+                        },
+                        {
+                            "destination_uuid": null,
+                            "uuid": "82bc33ac-8a1e-419a-bb8b-748eb3c6e375"
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "type": "enter_flow",
+                            "uuid": "05c688fc-a517-411d-840b-47e4b0349b35",
+                            "flow": {
+                                "name": "poll_pt1 - ExampleDummyPoll",
+                                "uuid": "eb951cdf-a2ad-4023-b31d-5da4bf195e68"
+                            }
+                        }
+                    ],
+                    "router": {
+                        "type": "switch",
+                        "operand": "@child.run.status",
+                        "cases": [
+                            {
+                                "uuid": "892aec83-859a-45f0-83e8-7164f7dd758f",
+                                "type": "has_only_text",
+                                "category_uuid": "cbe4a9cb-8b3c-451c-bed7-e934141fa862",
+                                "arguments": [
+                                    "completed"
+                                ]
+                            },
+                            {
+                                "uuid": "d9bd0cca-a00b-49ef-b2a3-60962ec128e5",
+                                "type": "has_only_text",
+                                "category_uuid": "6dfa4c4a-17c8-451f-90ff-c16449b9a31d",
+                                "arguments": [
+                                    "expired"
+                                ]
+                            }
+                        ],
+                        "categories": [
+                            {
+                                "uuid": "cbe4a9cb-8b3c-451c-bed7-e934141fa862",
+                                "name": "Complete",
+                                "exit_uuid": "be222b7c-3636-47da-8801-81fa056704dd"
+                            },
+                            {
+                                "uuid": "6dfa4c4a-17c8-451f-90ff-c16449b9a31d",
+                                "name": "Expired",
+                                "exit_uuid": "82bc33ac-8a1e-419a-bb8b-748eb3c6e375"
+                            }
+                        ],
+                        "default_category_uuid": "6dfa4c4a-17c8-451f-90ff-c16449b9a31d"
+                    }
+                }
+            ],
+            "spec_version": "13.1.0",
+            "revision": 0,
+            "expire_after_minutes": 10080,
+            "metadata": {},
+            "localization": {}
+        },
+        {
+            "uuid": "b36d4fb3-4c0a-4229-b7da-75aa31ae10fb",
+            "name": "poll_first_interaction - ExampleDummyPoll",
+            "language": "eng",
+            "type": "messaging",
+            "nodes": [
+                {
+                    "uuid": "4ee7c99b-9b3d-4b4f-b6ff-d6a12b7a437e",
+                    "exits": [
+                        {
+                            "destination_uuid": "73120d87-2756-495c-b219-49d4ec7cddde",
+                            "uuid": "ff76c2cf-e2ad-4197-9739-0dc8513ccf57"
+                        },
+                        {
+                            "destination_uuid": "87f4e686-d5ba-41c2-8ca1-0dc4ce24d179",
+                            "uuid": "49d67d97-3731-4aab-9670-cbe557432646"
+                        }
+                    ],
+                    "actions": [],
+                    "router": {
+                        "type": "switch",
+                        "operand": "@parent.results.fromtrigger",
+                        "cases": [
+                            {
+                                "uuid": "8af3d7a2-f7e4-4335-bb48-bc16850963d8",
+                                "type": "has_any_word",
+                                "category_uuid": "260f73eb-2fdf-491d-a809-97bbef49070e",
+                                "arguments": [
+                                    "yes"
+                                ]
+                            }
+                        ],
+                        "categories": [
+                            {
+                                "uuid": "260f73eb-2fdf-491d-a809-97bbef49070e",
+                                "name": "yes",
+                                "exit_uuid": "ff76c2cf-e2ad-4197-9739-0dc8513ccf57"
+                            },
+                            {
+                                "uuid": "6a6cc3c5-0b8f-48e2-9028-68d4eec4476f",
+                                "name": "Other",
+                                "exit_uuid": "49d67d97-3731-4aab-9670-cbe557432646"
+                            }
+                        ],
+                        "default_category_uuid": "6a6cc3c5-0b8f-48e2-9028-68d4eec4476f",
+                        "result_name": ""
+                    }
+                },
+                {
+                    "uuid": "73120d87-2756-495c-b219-49d4ec7cddde",
+                    "exits": [
+                        {
+                            "destination_uuid": "7f053fb1-4e00-4f45-83e8-0671180fa1a9",
+                            "uuid": "187c82e1-5357-4d10-b5ba-caa62fd74ef3"
+                        },
+                        {
+                            "destination_uuid": "a24c069b-41e4-43e4-8cea-352f2fa0d5b6",
+                            "uuid": "89c4b99b-16f5-4eb7-8c83-0f0c01c7eca4"
+                        },
+                        {
+                            "destination_uuid": "6b39fe17-8e4f-45f0-9ffe-deab8ce13a1b",
+                            "uuid": "2bd43dc4-e0d7-402e-95fa-94420e08e5f7"
+                        }
+                    ],
+                    "actions": [],
+                    "router": {
+                        "type": "switch",
+                        "operand": "@input.text",
+                        "cases": [
+                            {
+                                "uuid": "9a6452d4-1a4e-45e3-a6d1-462c7b8d3b2e",
+                                "type": "has_any_word",
+                                "category_uuid": "985b93b6-450b-41c4-bf9d-075a7205844c",
+                                "arguments": [
+                                    "Yes Ye Y yeah yep yo yes yeh"
+                                ]
+                            },
+                            {
+                                "uuid": "da0ef80f-27d5-4b9b-bc8f-e9776105219c",
+                                "type": "has_any_word",
+                                "category_uuid": "de830e73-2d22-4026-b36e-a5c8970ed2bb",
+                                "arguments": [
+                                    "No,N,Nope,na,nah"
+                                ]
+                            }
+                        ],
+                        "categories": [
+                            {
+                                "uuid": "985b93b6-450b-41c4-bf9d-075a7205844c",
+                                "name": "yes",
+                                "exit_uuid": "187c82e1-5357-4d10-b5ba-caa62fd74ef3"
+                            },
+                            {
+                                "uuid": "de830e73-2d22-4026-b36e-a5c8970ed2bb",
+                                "name": "no",
+                                "exit_uuid": "89c4b99b-16f5-4eb7-8c83-0f0c01c7eca4"
+                            },
+                            {
+                                "uuid": "c44f9e4d-3d6f-41a6-9f8b-5ebc9bb42eb9",
+                                "name": "Other",
+                                "exit_uuid": "2bd43dc4-e0d7-402e-95fa-94420e08e5f7"
+                            }
+                        ],
+                        "default_category_uuid": "c44f9e4d-3d6f-41a6-9f8b-5ebc9bb42eb9",
+                        "wait": {
+                            "type": "msg"
+                        },
+                        "result_name": "want to participate in poll"
+                    }
+                },
+                {
+                    "uuid": "6b39fe17-8e4f-45f0-9ffe-deab8ce13a1b",
+                    "exits": [
+                        {
+                            "destination_uuid": "73120d87-2756-495c-b219-49d4ec7cddde",
+                            "uuid": "d2b67b01-7c7c-440b-a64d-71a5479c6a2d"
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "uuid": "574115ca-b7dd-4d6c-b7aa-c36821c46529",
+                            "type": "send_msg",
+                            "text": "Sorry, please reply one of the two options provided only. Please reply YES or NO",
+                            "attachments": [],
+                            "quick_replies": [
+                                "YES",
+                                "NO"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "uuid": "87f4e686-d5ba-41c2-8ca1-0dc4ce24d179",
+                    "exits": [
+                        {
+                            "destination_uuid": "93a21ed4-631f-4f25-b7f6-0b6b2194f1f2",
+                            "uuid": "0e0dd10a-dee1-4012-8b12-70502d51dcf0"
+                        },
+                        {
+                            "destination_uuid": "4f724b29-6044-45b0-8afc-4fcb24445ac6",
+                            "uuid": "a6a88055-135c-43da-b999-14332d08a27d"
+                        },
+                        {
+                            "destination_uuid": "6b39fe17-8e4f-45f0-9ffe-deab8ce13a1b",
+                            "uuid": "5438e4c2-2390-4f2c-acaf-a27009345d2b"
+                        }
+                    ],
+                    "actions": [],
+                    "router": {
+                        "type": "switch",
+                        "operand": "@input.text",
+                        "cases": [
+                            {
+                                "uuid": "c779e71a-9f34-48a8-888a-97c47550782c",
+                                "type": "has_any_word",
+                                "category_uuid": "3d1ee70d-b9ac-4921-a328-a1a2ed7b3e04",
+                                "arguments": [
+                                    "yes y"
+                                ]
+                            },
+                            {
+                                "uuid": "7db15c61-f910-468b-8038-6e5ddb04f4e7",
+                                "type": "has_any_word",
+                                "category_uuid": "ee290950-c9b7-4431-8815-5959d1ff4767",
+                                "arguments": [
+                                    "no n"
+                                ]
+                            }
+                        ],
+                        "categories": [
+                            {
+                                "uuid": "3d1ee70d-b9ac-4921-a328-a1a2ed7b3e04",
+                                "name": "yes",
+                                "exit_uuid": "0e0dd10a-dee1-4012-8b12-70502d51dcf0"
+                            },
+                            {
+                                "uuid": "ee290950-c9b7-4431-8815-5959d1ff4767",
+                                "name": "no",
+                                "exit_uuid": "a6a88055-135c-43da-b999-14332d08a27d"
+                            },
+                            {
+                                "uuid": "73917498-ea95-44ef-83c0-6bf42e5c7318",
+                                "name": "Other",
+                                "exit_uuid": "5438e4c2-2390-4f2c-acaf-a27009345d2b"
+                            }
+                        ],
+                        "default_category_uuid": "73917498-ea95-44ef-83c0-6bf42e5c7318",
+                        "result_name": ""
+                    }
+                },
+                {
+                    "uuid": "93a21ed4-631f-4f25-b7f6-0b6b2194f1f2",
+                    "exits": [
+                        {
+                            "destination_uuid": "7f053fb1-4e00-4f45-83e8-0671180fa1a9",
+                            "uuid": "a9af072f-0482-42f5-843e-d10af5d77a2f"
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "type": "set_run_result",
+                            "name": "want to participate in poll",
+                            "value": "yes",
+                            "uuid": "b7f02744-95d0-4a79-b0aa-1c25f894d5da"
+                        }
+                    ]
+                },
+                {
+                    "uuid": "4f724b29-6044-45b0-8afc-4fcb24445ac6",
+                    "exits": [
+                        {
+                            "destination_uuid": "a24c069b-41e4-43e4-8cea-352f2fa0d5b6",
+                            "uuid": "77c65757-14f4-43ba-8286-1397a21175b1"
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "type": "set_run_result",
+                            "name": "want to participate in poll",
+                            "value": "no",
+                            "uuid": "18314c77-ad7c-4199-9003-dfe0b15bbef5"
+                        }
+                    ]
+                },
+                {
+                    "uuid": "7f053fb1-4e00-4f45-83e8-0671180fa1a9",
+                    "exits": [
+                        {
+                            "destination_uuid": "4f40de67-1564-4045-aa29-690bfefed259",
+                            "uuid": "8a2c4f5a-62e5-4298-a88b-5cface699b31"
+                        },
+                        {
+                            "destination_uuid": "5f693ab2-95e3-4f1c-96d0-aa08eaa857a5",
+                            "uuid": "58b43128-23eb-431e-a7fb-675d746d7ac4"
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "type": "enter_flow",
+                            "uuid": "1aca872d-0f2f-4020-ac52-1db7a4f32b9c",
+                            "flow": {
+                                "name": "registration_flow_name",
+                                "uuid": "157e19a8-0157-42f7-9a47-d6e2936783df"
+                            }
+                        }
+                    ],
+                    "router": {
+                        "type": "switch",
+                        "operand": "@child.run.status",
+                        "cases": [
+                            {
+                                "uuid": "671af498-6513-43c2-b004-13cf43cea6a3",
+                                "type": "has_only_text",
+                                "category_uuid": "09154461-73a4-419d-ac81-87ffbacd218c",
+                                "arguments": [
+                                    "completed"
+                                ]
+                            },
+                            {
+                                "uuid": "28d4f0ec-98c5-4a88-a0e5-511ba2df340f",
+                                "type": "has_only_text",
+                                "category_uuid": "0f87c85c-c4c4-43eb-9f88-30490b308d22",
+                                "arguments": [
+                                    "expired"
+                                ]
+                            }
+                        ],
+                        "categories": [
+                            {
+                                "uuid": "09154461-73a4-419d-ac81-87ffbacd218c",
+                                "name": "Complete",
+                                "exit_uuid": "8a2c4f5a-62e5-4298-a88b-5cface699b31"
+                            },
+                            {
+                                "uuid": "0f87c85c-c4c4-43eb-9f88-30490b308d22",
+                                "name": "Expired",
+                                "exit_uuid": "58b43128-23eb-431e-a7fb-675d746d7ac4"
+                            }
+                        ],
+                        "default_category_uuid": "0f87c85c-c4c4-43eb-9f88-30490b308d22"
+                    }
+                },
+                {
+                    "uuid": "5f693ab2-95e3-4f1c-96d0-aa08eaa857a5",
+                    "exits": [
+                        {
+                            "destination_uuid": "d9d695f0-81c0-4c87-9580-0d4f43b5de52",
+                            "uuid": "e20d9346-af31-49cf-94b4-0eeb8497ead9"
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "uuid": "8d4132e7-41bd-4958-a84f-3a04210ed11d",
+                            "type": "send_msg",
+                            "text": "Your chat has timed out. If you want to go back to this poll, please message us the word POLL",
+                            "attachments": [],
+                            "quick_replies": []
+                        }
+                    ]
+                },
+                {
+                    "uuid": "d9d695f0-81c0-4c87-9580-0d4f43b5de52",
+                    "exits": [
+                        {
+                            "destination_uuid": null,
+                            "uuid": "d6cdb8e7-28c7-41c6-b222-8a5d75909135"
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "type": "set_run_result",
+                            "name": "accepted",
+                            "value": "no",
+                            "uuid": "8084b76f-3f12-4834-a1ea-195f72d37439"
+                        }
+                    ]
+                },
+                {
+                    "uuid": "4f40de67-1564-4045-aa29-690bfefed259",
+                    "exits": [
+                        {
+                            "destination_uuid": "a4588832-8581-4c26-91b5-315debe2ae8c",
+                            "uuid": "a9248305-845d-4b3e-b02c-cf1edcc98c33"
+                        },
+                        {
+                            "destination_uuid": "15e9595a-4495-40bc-bb50-075c01bd6b49",
+                            "uuid": "8337914a-8621-4ca2-93b0-f67b69a56b04"
+                        }
+                    ],
+                    "actions": [],
+                    "router": {
+                        "type": "switch",
+                        "operand": "@contact.groups",
+                        "cases": [
+                            {
+                                "uuid": "fad05303-6284-477b-af47-598a4e9e191c",
+                                "type": "has_group",
+                                "category_uuid": "f0317bd0-2ee6-474e-a7cc-20c861d22959",
+                                "arguments": [
+                                    "72ebf929-b803-4dd4-994b-bfbf94d64497",
+                                    "excluded_user_group_name"
+                                ]
+                            }
+                        ],
+                        "categories": [
+                            {
+                                "uuid": "f0317bd0-2ee6-474e-a7cc-20c861d22959",
+                                "name": "excluded_user_group_name",
+                                "exit_uuid": "a9248305-845d-4b3e-b02c-cf1edcc98c33"
+                            },
+                            {
+                                "uuid": "a3eb9816-80f9-4ac4-b4a1-6a55ac303b0d",
+                                "name": "Other",
+                                "exit_uuid": "8337914a-8621-4ca2-93b0-f67b69a56b04"
+                            }
+                        ],
+                        "default_category_uuid": "a3eb9816-80f9-4ac4-b4a1-6a55ac303b0d",
+                        "result_name": ""
+                    }
+                },
+                {
+                    "uuid": "a4588832-8581-4c26-91b5-315debe2ae8c",
+                    "exits": [
+                        {
+                            "destination_uuid": null,
+                            "uuid": "cebc723e-a2f2-4bb7-aef3-c917788118b3"
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "type": "set_run_result",
+                            "name": "accepted",
+                            "value": "no",
+                            "uuid": "13d06fa8-2a6b-49e4-8f1d-f4aefa5dc05e"
+                        }
+                    ]
+                },
+                {
+                    "uuid": "15e9595a-4495-40bc-bb50-075c01bd6b49",
+                    "exits": [
+                        {
+                            "destination_uuid": null,
+                            "uuid": "a8a11366-ff13-4fdc-86fe-87d2f44c95c7"
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "type": "set_run_result",
+                            "name": "accepted",
+                            "value": "yes",
+                            "uuid": "445afe17-97cb-459f-b1c7-e84ae00d88b5"
+                        }
+                    ]
+                },
+                {
+                    "uuid": "a24c069b-41e4-43e4-8cea-352f2fa0d5b6",
+                    "exits": [
+                        {
+                            "destination_uuid": "19806897-9d7a-4a85-beef-893352708412",
+                            "uuid": "53921cc7-aa37-46a7-9703-523deff09544"
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "uuid": "5479ca7f-d9d0-4f58-99d1-5f5f1e58e937",
+                            "type": "send_msg",
+                            "text": "No problem, but if you change your mind and DO want to participate in this poll, please message us the word POLL",
+                            "attachments": [],
+                            "quick_replies": []
+                        }
+                    ]
+                },
+                {
+                    "uuid": "19806897-9d7a-4a85-beef-893352708412",
+                    "exits": [
+                        {
+                            "destination_uuid": null,
+                            "uuid": "53bd653b-09bc-4ae3-a4b5-11f8cf1e1aa6"
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "type": "set_run_result",
+                            "name": "accepted",
+                            "value": "no",
+                            "uuid": "1fa7fa0c-ee5e-4e5b-ad57-394133aab721"
+                        }
+                    ]
+                },
+                {
+                    "uuid": "480a007b-dd27-400a-afc2-1a55c7378878",
+                    "exits": [
+                        {
+                            "destination_uuid": null,
+                            "uuid": "74a13522-2e7f-45ac-9e25-1a6fa0414e08"
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "uuid": "5367a7f5-5d39-4a84-934a-bc526bd2c61b",
+                            "type": "send_msg",
+                            "text": "Thanks for replying but we had to close the poll.",
+                            "attachments": [],
+                            "quick_replies": []
+                        }
+                    ]
+                }
+            ],
+            "spec_version": "13.1.0",
+            "revision": 0,
+            "expire_after_minutes": 10080,
+            "metadata": {},
+            "localization": {}
+        }
+    ],
+    "groups": [
+        {
+            "name": "completed ExampleDummyPoll poll",
+            "uuid": "1b26f218-84a6-48d8-9592-9066f288e1bc"
+        },
+        {
+            "name": "in program",
+            "uuid": "0b95a70d-1f88-4cd8-b1ef-3b33158b133b"
+        },
+        {
+            "name": "Chatline Users - open cases",
+            "uuid": "cefc0d78-c8ff-4127-bc22-906c6a29705a"
+        },
+        {
+            "name": "open interaction",
+            "uuid": "728122c5-b4c2-4ca1-a94f-25e3d59d77fb"
+        },
+        {
+            "name": "excluded_user_group_name",
+            "uuid": "72ebf929-b803-4dd4-994b-bfbf94d64497"
+        }
+    ],
+    "site": "https://rapidpro.idems.international",
+    "triggers": [],
+    "version": "13"
+}
