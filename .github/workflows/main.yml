@@ -11,9 +11,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Change to technical folder
-        run: cd technical
-
       - name: Install Node dependencies
         working-directory: technical
         run: npm ci
