@@ -29,4 +29,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: Poll Wrappers File
-          path: output/poll_wrappers.json
+          path: technical/output/poll_wrappers.json
