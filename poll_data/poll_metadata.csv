@@ -1,2 +1,2 @@
-ID,poll_type,HIV poll
-ExampleDummyPoll,poll_type,
+ID,poll_type,poll_name
+ExampleDummyPoll,poll_type,HIV Poll
