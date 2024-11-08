@@ -19,7 +19,7 @@
             "subformat": "csv",
             "files_dict": {
                 "workspace_data": "workspace_data",
-                "poll_data": "poll_data"
+                "poll_data": "../poll_data"
             }
         },
         "expiration_times": {

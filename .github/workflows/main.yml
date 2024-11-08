@@ -1,4 +1,4 @@
-name: Produce RapidPro flows
+name: Produce Poll Wrappers
 on:
     workflow_dispatch
 
@@ -12,18 +12,21 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install Node dependencies
+        working-directory: technical
         run: npm ci
 
       - name: Install Python dependencies
+        working-directory: technical
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
       - name: Run pipeline
-        run: python -m parenttext_pipeline.cli pull_data compile_flows
+        working-directory: technical
+        run:  python -m parenttext_pipeline.cli pull_data compile_flows
 
-      - name: Publish output folder
+      - name: Publish poll_wrappers.json
         uses: actions/upload-artifact@v3
         with:
-          name: Output Files
-          path: output
+          name: Poll Wrappers File
+          path: technical/output/poll_wrappers.json
